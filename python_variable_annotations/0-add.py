@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-def add(a: int = 1, b: int = 2) -> int:
+def add(a: float, b: float) -> float:
     return a + b
 
 
