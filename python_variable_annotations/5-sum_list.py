@@ -18,7 +18,8 @@ def sum_list(input_list: List[float]) -> float:
     Returns the sum of all elements in a list.
 
     Args:
-        input_list (List[float]): The list to sum. The list can contain floating point numbers.
+        input_list (List[float]): The list to sum.
+        The list can contain floating point numbers.
 
     Returns:
         float: The sum of all elements in the list.
