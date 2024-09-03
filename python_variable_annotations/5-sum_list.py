@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 
+
+"""
+This module contains a function that
+sums all elements in a list.
+import List from typing
+"""
 from typing import List
 
 """
