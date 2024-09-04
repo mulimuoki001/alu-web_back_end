@@ -4,6 +4,14 @@
 """
 This module contains a function that
 sums all elements in a list.
+import List from typing
+"""
+from typing import Union
+
+
+"""
+This module contains a function that
+sums all elements in a list.
 
 Example:
     >>> sum_mixed_list([1, 2, 3, 4])
@@ -13,7 +21,7 @@ Example:
 """
 
 
-def sum_mixed_list(mxd_lst: list[any]) -> float:
+def sum_mixed_list(mxd_lst: Union[int, float]) -> float:
     """
     Returns the sum of all elements in a list.
 
