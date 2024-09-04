@@ -13,7 +13,7 @@ from typing import Callable
     """
 
 
-def make_multiplier(multiplier: float) -> Callable:
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """
     Returns a function that multiplies its argument by multiplier.
 
