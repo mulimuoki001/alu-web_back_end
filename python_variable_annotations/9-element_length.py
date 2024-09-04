@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """Import List and Tuple"""
-from typing import List, Tuple
+from typing import List, Tuple, Iterable, Sequence
 
 """
 This module contains a function that
@@ -14,9 +14,10 @@ Example:
 """
 
 
-def element_length(lst: List[List[any]]) -> List[Tuple[List[any], int]]:
+def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
     """
-    Returns a list of tuples, where each tuple contains an element from the input list and its length.
+    Returns a list of tuples, where each tuple contains an
+    element from the input list and its length.
 
     Args:
         lst (List[List[Any]]): The input list.
