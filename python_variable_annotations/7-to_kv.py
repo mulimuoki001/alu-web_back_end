@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 
 
+"""
+    This script imports the Union and Tuple modules.
+"""
 from typing import Union, Tuple
 
 """
