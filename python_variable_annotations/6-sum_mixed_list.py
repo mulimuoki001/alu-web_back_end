@@ -6,7 +6,7 @@ This module contains a function that
 sums all elements in a list.
 import List from typing
 """
-from typing import Union
+from typing import Union, List
 
 
 """
@@ -21,7 +21,7 @@ Example:
 """
 
 
-def sum_mixed_list(mxd_lst: Union[int, float]) -> float:
+def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
     """
     Returns the sum of all elements in a list.
 
