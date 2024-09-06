@@ -4,6 +4,7 @@
 """Measure the runtime"""
 import time
 import importlib
+import asyncio
 
 wait_n = importlib.import_module("1-concurrent_coroutines").wait_n
 """
@@ -13,7 +14,7 @@ import the wait_n function
 """
 
 
-async def measure_time(n: int, max_delay: int) -> float:
+def measure_time(n: int, max_delay: int) -> float:
     """
     Measure the runtime
 
@@ -22,10 +23,10 @@ async def measure_time(n: int, max_delay: int) -> float:
     max_delay (int): Maximum delay for each wait_random call
 
     Returns:
-    float: total_time / n
+    float: Total runtime
     """
-    start = time.perf_counter()
-    await wait_n(n, max_delay)
-    end = time.perf_counter()
+    start = time.time()
+    asyncio.run(wait_n(n, max_delay))
+    end = time.time()
     total_time = end - start
     return total_time / n
