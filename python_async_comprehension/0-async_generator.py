@@ -3,11 +3,12 @@
 """async generator"""
 import asyncio
 import random
+from typing import Generator
 
 """Import random and asyncio modules"""
 
 
-async def async_generator():
+async def async_generator() -> Generator[float, None, None]:
     """
     Async generator
     Lopps 10 times and
