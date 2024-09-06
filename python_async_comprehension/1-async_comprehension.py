@@ -4,6 +4,7 @@
 import asyncio
 from typing import Generator
 import importlib
+from typing import NoneType
 
 """
 import importlib module
@@ -16,7 +17,7 @@ async_generator = importlib.import_module("0-async_generator").async_generator
 """The following function stores the first 10 random numbers in a list"""
 
 
-async def async_comprehension() -> Generator[float, None, None]:
+async def async_comprehension() -> Generator[float, NoneType, NoneType]:
     """The coroutine will collect 10 random numbers
     using an async comprehensing over
     async_generator, then return the 10 random numbers.
