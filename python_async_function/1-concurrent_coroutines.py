@@ -4,11 +4,11 @@
 Concurrent Coroutines
 """
 import asyncio
-import random
 from typing import List
 import heapq
-from 0-basic_async_syntax import wait_random
+import importlib
 
+wait_random = importlib.import_module("0-basic_async_syntax").wait_random
 """
 import the random and asyncio libraries
 from the 0-basic_async_syntax module
@@ -20,7 +20,8 @@ import the wait_random function
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
     """
-    Spawn wait_random n times with the specified max_delay and return the list of delays in ascending order.
+    Spawn wait_random n times with the specified
+    max_delay and return the list of delays in ascending order.
 
     Args:
     n (int): Number of times to spawn wait_random
