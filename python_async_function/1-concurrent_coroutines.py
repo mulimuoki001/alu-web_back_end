@@ -33,8 +33,11 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     # Create a list to store the tasks
     tasks = [wait_random(max_delay) for _ in range(n)]
     # Use asyncio.gather to run the tasks concurrently and get the results
-    results = await asyncio.gather(*tasks)
-    # Use a heap to sort the results in ascending order without using sort()
-    heapq.heapify(results)
+    l1 = await asyncio.gather(*tasks)
+    # Sorting a list without using sort function
+    for i in range(0, len(l1)):
+        for j in range(i + 1, len(l1)):
+            if l1[i] >= l1[j]:
+                l1[i], l1[j] = l1[j], l1[i]
     # Return the sorted list of delays
-    return [heapq.heappop(results) for _ in range(n)]
+    return [heapq.heappop(l1) for _ in range(n)]
