@@ -14,7 +14,8 @@ import the random and asyncio libraries
 from the 0-basic_async_syntax module
 from the typing library import the List module
 from the heapq library import the heapq module
-import the wait_random function
+from the importlib library import the importlib module
+from the 0-basic_async_syntax module import the wait_random function
 """
 
 
