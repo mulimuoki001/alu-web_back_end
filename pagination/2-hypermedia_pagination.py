@@ -41,6 +41,8 @@ class Server:
             "prev_page": page - 1 if start > 0 else None,
             "total_pages": len(self.dataset()),
         }
+        if end >= len(self.dataset()):
+            dict1["next_page"] = None
         return dict1
 
 
