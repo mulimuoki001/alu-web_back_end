@@ -29,7 +29,8 @@ class Server:
         """
         Returns the cached dataset.
 
-        If the dataset is not cached, it reads the dataset from the file and caches it.
+        If the dataset is not cached, it reads the
+        dataset from the file and caches it.
 
         Returns:
             List[List]: The dataset.
@@ -55,8 +56,10 @@ class Server:
                 - page_size (int): The number of items per page.
                 - page (int): The current page number.
                 - data (List[List]): The data for the current page.
-                - next_page (int): The next page number, or None if there is no next page.
-                - prev_page (int): The previous page number, or None if there is no previous page.
+                - next_page (int): The next page number, or None
+                if there is no next page.
+                - prev_page (int): The previous page number, or
+                None if there is no previous page.
                 - total_pages (int): The total number of pages.
         """
         assert isinstance(page, int) and page > 0
