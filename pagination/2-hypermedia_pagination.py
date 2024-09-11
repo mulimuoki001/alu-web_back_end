@@ -41,7 +41,7 @@ class Server:
         assert isinstance(page_size, int) and page_size > 0
         start, end = index_range(page, page_size)
         if start >= len(self.dataset()):
-            return []
+            return {}
         dict1 = {
             "page_size": page_size,
             "page": page,
