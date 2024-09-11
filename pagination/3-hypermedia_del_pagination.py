@@ -53,6 +53,6 @@ class Server:
             "index": index,
             "next_index": index + page_size,
             "page_size": page_size,
-            "data": self.dataset()[index : index + page_size],
+            "data": self.dataset()[index: index + page_size],
             "page": index // page_size + 1,
         }
