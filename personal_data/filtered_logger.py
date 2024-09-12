@@ -2,6 +2,7 @@
 
 
 """Filtered logger"""
+import re
 from typing import List
 
 
@@ -18,11 +19,8 @@ def filter_datum(
 
     Returns:
         str: filtered message
-
     """
     for field in fields:
-        message = message.replace(
-            f"{field}={message.split(f'{field}=')[1].split(';')[0]}",
-            f"{field}={redaction}",
-        )
+        value = message.split(field + "=")[1].split(";")[0]
+        message = re.sub(value, redaction, message)
     return message
