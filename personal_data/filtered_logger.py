@@ -58,11 +58,11 @@ def filter_datum(
 
 
 PII_FIELDS = (
+    "name",
     "email",
-    "phone_number",
-    "address",
-    "social_security_number",
-    "date_of_birth",
+    "phone",
+    "ssn",
+    "password",
 )
 
 
