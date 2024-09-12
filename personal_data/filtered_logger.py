@@ -16,12 +16,15 @@ def filter_datum(
         redaction (str): string to replace with
         message (str): message to filter
         separator (str): separator for fields
-
     Returns:
         str: filtered message
     """
     for field in fields:
-        if field in message:
-            value = message.split(field + "=")[1].split(";")[0]
-            message = re.sub(value, redaction, message)
+        pattern = rf"{field}=([^{separator}]*)"
+        message = re.sub(
+            pattern,
+            lambda m: m.group(0).split("=")[0] + "=" + redaction,
+            message,
+            flags=re.IGNORECASE,
+        )
     return message
