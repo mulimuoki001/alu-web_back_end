@@ -5,7 +5,6 @@
 import re
 from typing import List
 import logging
-from logging import StreamHandler
 
 
 class RedactingFormatter(logging.Formatter):
@@ -73,7 +72,7 @@ def get_logger() -> logging.Logger:
     logger.propagate = False  # Do not propagate messages to other loggers
 
     # Create a StreamHandler with a RedactingFormatter
-    handler = StreamHandler()
+    handler = logging.StreamHandler()
     formatter = RedactingFormatter(piis=PII_FIELDS)
     handler.setFormatter(formatter)
     logger.addHandler(handler)
