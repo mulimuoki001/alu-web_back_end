@@ -5,6 +5,7 @@
 import re
 from typing import List
 import logging
+from logging import StreamHandler
 
 
 class RedactingFormatter(logging.Formatter):
@@ -54,3 +55,27 @@ def filter_datum(
             flags=re.IGNORECASE,
         )
     return message
+
+
+PII_FIELDS = (
+    "email",
+    "phone_number",
+    "address",
+    "social_security_number",
+    "date_of_birth",
+)
+
+
+def get_logger() -> logging.Logger:
+    # Create a logger with the specified name and level
+    logger = logging.getLogger("user_data")
+    logger.setLevel(logging.INFO)
+    logger.propagate = False  # Do not propagate messages to other loggers
+
+    # Create a StreamHandler with a RedactingFormatter
+    handler = StreamHandler()
+    formatter = RedactingFormatter(piis=PII_FIELDS)
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+
+    return logger
