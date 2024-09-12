@@ -66,6 +66,7 @@ PII_FIELDS = (
 
 
 def get_logger() -> logging.Logger:
+    """Get a logger"""
     # Create a logger with the specified name and level
     logger = logging.getLogger("user_data")
     logger.setLevel(logging.INFO)
