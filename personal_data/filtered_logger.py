@@ -20,9 +20,8 @@ def filter_datum(
     Returns:
         str: filtered message
     """
-    for message in messages:
-        for field in fields:
-            if field in message:
-                value = message.split(field + "=")[1].split(";")[0]
-            message = re.sub(value, redaction, message)
+    for field in fields:
+        if field in message:
+            value = message.split(field + "=")[1].split(";")[0]
+        message = re.sub(value, redaction, message)
     return message
