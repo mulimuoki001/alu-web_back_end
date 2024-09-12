@@ -83,7 +83,7 @@ def get_logger() -> logging.Logger:
     return logger
 
 
-def get_db() -> None:
+def get_db() -> mysql.connector.connection.MySQLConnection:
     """Get a database"""
     host = (os.environ.get("PERSONAL_DATA_DB_HOST", "localhost"),)
     user = (os.environ.get("PERSONAL_DATA_DB_USERNAME", "root"),)
