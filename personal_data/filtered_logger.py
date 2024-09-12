@@ -23,5 +23,5 @@ def filter_datum(
     for field in fields:
         if field in message:
             value = message.split(field + "=")[1].split(";")[0]
-        message = re.sub(value, redaction, message)
+            message = re.sub(value, redaction, message)
     return message
