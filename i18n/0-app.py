@@ -8,7 +8,8 @@ from flask import Flask, render_template
 from flask_babel import Babel
 
 """
-Instantiate the Babel object to enable internationalization support.
+Instantiate the Babel object to enable
+internationalization support.
 """
 babel = Babel()
 
