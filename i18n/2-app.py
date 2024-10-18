@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+"""Import necessary modules"""
 from flask import Flask, request
 from flask_babel import Babel
 
@@ -22,12 +23,4 @@ def get_locale():
 
     :return: The best match for the user's locale (e.g. 'en', 'fr')
     """
-    return request.accept_languages.best_match(
-        ["en", "fr"]
-    )  # add your supported languages here
-
-
-"""
-The Babel instance for internationalization, initialized
-with the Flask application and locale selector function.
-"""
+    return request.accept_languages.best_match(["en", "fr"])
