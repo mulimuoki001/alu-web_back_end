@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 """
-This module sets up a Flask app with internationalization support using Flask-Babel.
+This module sets up a Flask app with internationalization
+support using Flask-Babel.
 """
 
 from flask import Flask, render_template
