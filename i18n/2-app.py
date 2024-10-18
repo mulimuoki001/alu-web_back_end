@@ -5,9 +5,8 @@ This module sets up a Flask app with internationalization
 support using Flask-Babel.
 """
 
-from flask import Flask, render_template
-from flask_babel import Babel
-
+from flask import Flask, render_template, request
+from flask_babel import Babel, localeselector
 
 """
 Instantiate the Babel object to enable
@@ -46,7 +45,13 @@ def index():
     Returns:
         str: Rendered HTML template.
     """
-    return render_template("1-index.html")
+    return render_template("2-index.html")
+
+
+@babel.localeselector
+def get_locale():
+    """Return the best match for the user's locale"""
+    return request.accept_languages.best_match("en", "fr", "es")
 
 
 """
