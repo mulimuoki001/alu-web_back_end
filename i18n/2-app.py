@@ -1,66 +1,28 @@
-#!/usr/bin/env python3
+from flask import Flask, request
+from flask_babel import Babel
 
 """
-This module sets up a Flask app with internationalization
-support using Flask-Babel.
+This module initializes the Flask application and sets up the Babel instance for internationalization.
 """
 
-from flask import Flask, render_template, request
-from flask_babel import Babel, localeselector
-
-"""
-Instantiate the Babel object to enable
-internationalization support.
-"""
-babel = Babel()
-
-
-class Config:
-    """
-    Configuration class for the Flask app.
-
-    Attributes:
-        LANGUAGES (list): List of available languages.
-        BABEL_DEFAULT_LOCALE (str): Default locale.
-        BABEL_DEFAULT_TIMEZONE (str): Default timezone.
-    """
-
-    LANGUAGES = ["en", "fr"]
-    BABEL_DEFAULT_LOCALE = "en"
-    BABEL_DEFAULT_TIMEZONE = "UTC"
-
-
-"""
-Create a Flask app and configure it with the Config class.
-"""
 app = Flask(__name__)
-app.config.from_object(Config)
-babel.init_app(app)
+"""
+The Flask application instance.
+"""
 
 
-def index():
-    """
-    Render the index.html template.
-
-    Returns:
-        str: Rendered HTML template.
-    """
-    return render_template("2-index.html")
-
-
-@babel.localeselector
 def get_locale():
-    """Return the best match for the user's locale"""
-    return request.accept_languages.best_match("en", "fr", "es")
+    """
+    Returns the best match for the user's locale based on the Accept-Language header.
+
+    :return: The best match for the user's locale (e.g. 'en', 'fr', 'es')
+    """
+    return request.accept_languages.best_match(
+        ["en", "fr", "es"]
+    )  # add your supported languages here
 
 
+babel = Babel(app, locale_selector=get_locale)
 """
-Route for the root URL.
+The Babel instance for internationalization, initialized with the Flask application and locale selector function.
 """
-app.route("/")(index)
-
-"""
-Run the app if this module is executed directly.
-"""
-if __name__ == "__main__":
-    app.run()
